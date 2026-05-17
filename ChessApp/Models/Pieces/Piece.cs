@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChessApp.Models
+﻿namespace ChessApp.Models.Pieces
 {
     internal abstract class Piece
     {
