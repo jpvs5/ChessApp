@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChessApp.Models.Pieces
+﻿namespace ChessApp.Models.Pieces
 {
-    internal class Rook : Piece
+    public class Rook : Piece
     {
         public Rook(PlayerColor pieceColor)
         {

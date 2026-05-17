@@ -1,6 +1,6 @@
 ﻿namespace ChessApp.Models.Pieces
 {
-    internal abstract class Piece
+    public abstract class Piece
     {
         public abstract PlayerColor PieceColor { get; }
 

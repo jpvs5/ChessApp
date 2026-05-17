@@ -1,6 +1,6 @@
 ﻿namespace ChessApp.Models
 {
-    internal enum PlayerColor
+    public enum PlayerColor
     {
         White,
         Black

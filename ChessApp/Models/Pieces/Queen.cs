@@ -1,6 +1,6 @@
 ﻿namespace ChessApp.Models.Pieces
 {
-    internal class Queen : Piece
+    public class Queen : Piece
     {
         public Queen(PlayerColor pieceColor)
         {

@@ -1,12 +1,9 @@
 ﻿using ChessApp.Models.Pieces;
-using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using Tmds.DBus.Protocol;
 
 namespace ChessApp.Models
 {
-    internal class Board
+    public class Board
     {
         public Board()
         {

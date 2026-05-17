@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ChessApp.Models.Pieces;
 
 namespace ChessApp.Models
 {
-    internal class Square
+    public class Square
     {
-        public Square(string notation, Piece piece)
+        public Square(string notation, Piece? piece)
         {
             this._notation = notation;
             this._piece = piece;
@@ -16,6 +14,6 @@ namespace ChessApp.Models
         public string Notation { get; }
 
         private Piece _piece;
-        public Piece Piece { get; }
+        public Piece Piece { get; set; }
     }
 }

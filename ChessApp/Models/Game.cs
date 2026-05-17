@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChessApp.Models
+﻿namespace ChessApp.Models
 {
-    internal class Game
+    public class Game
     {
         public Game()
         {
@@ -19,7 +15,7 @@ namespace ChessApp.Models
 
         private Board _board;
 
-        public bool makeMove(int srcSquare, int dstSquare)
+        public bool makeMove(string srcSquare, string dstSquare)
         {
             return false;
         }
