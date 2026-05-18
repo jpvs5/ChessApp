@@ -6,6 +6,6 @@
 
         public abstract string Notation { get; }
 
-        public abstract bool validMove(Square srcSquare, Square dstSquare);
+        public abstract bool validMove(string srcSquare, string dstSquare);
     }
 }
