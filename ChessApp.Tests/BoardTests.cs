@@ -1,5 +1,6 @@
 ﻿using ChessApp.Models;
 using ChessApp.Models.Pieces;
+using SkiaSharp;
 
 namespace ChessApp.Tests
 {
@@ -43,6 +44,46 @@ namespace ChessApp.Tests
                 Assert.Null(board.BoardState[$"{columns[i]}5"].Piece);
                 Assert.Null(board.BoardState[$"{columns[i]}6"].Piece);
             }
+        }
+
+        [Theory]
+        [InlineData("b3", "c4", PlayerColor.White)]
+        [InlineData("h2", "h3", PlayerColor.Black)]
+        [InlineData("e1", "e2", PlayerColor.White)]
+        public void MovePieceTest_ReturnFalse(string srcSquare, string dstSquare, PlayerColor playerColor)
+        {
+            Board board = new Board();
+            
+            Assert.False(board.movePiece(srcSquare, dstSquare, playerColor));
+        }
+
+        [Theory]
+        [InlineData("c2", "c3", PlayerColor.White)]
+        [InlineData("e7", "e5", PlayerColor.Black)]
+        [InlineData("b1", "c3", PlayerColor.White)]
+        public void MovePieceTest_ReturnTrue(string srcSquare, string dstSquare, PlayerColor playerColor)
+        {
+            Board board = new Board();
+
+            Assert.True(board.movePiece(srcSquare, dstSquare, playerColor));
+        }
+
+        [Fact]
+        public void ColDistTest()
+        {
+            Assert.Equal(1, Board.colDist("a2", "b2"));
+            Assert.Equal(0, Board.colDist("g2", "g7"));
+            Assert.Equal(3, Board.colDist("c2", "f5"));
+            Assert.Equal(2, Board.colDist("e1", "c3"));
+        }
+
+        [Fact]
+        public void RowDistTest()
+        {
+            Assert.Equal(0, Board.rowDist("a2", "b2"));
+            Assert.Equal(5, Board.rowDist("g2", "g7"));
+            Assert.Equal(3, Board.rowDist("c2", "f5"));
+            Assert.Equal(2, Board.rowDist("e1", "c3"));
         }
     }
 }

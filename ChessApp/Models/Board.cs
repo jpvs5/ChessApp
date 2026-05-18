@@ -1,4 +1,5 @@
 ﻿using ChessApp.Models.Pieces;
+using System;
 using System.Collections.Generic;
 
 namespace ChessApp.Models
@@ -49,11 +50,38 @@ namespace ChessApp.Models
                     new Rook(playerColor)];
         }
 
+        public static int colDist(string srcSquare,  string dstSquare)
+        {
+            return Math.Abs(dstSquare[0] - srcSquare[0]);
+        }
+
+        public static int rowDist(string srcSquare, string dstSquare)
+        {
+            return Math.Abs((int)char.GetNumericValue(dstSquare[1]) - (int)char.GetNumericValue(srcSquare[1]));
+        }
+
         public Dictionary<string, Square> BoardState { get; }
 
         public bool movePiece(string srcSquare, string dstSquare, PlayerColor color)
         {
-            return false;
+            Piece piece = BoardState[srcSquare].Piece;
+
+            if (piece == null)
+            {
+                return false;
+            }
+
+            if (piece.PieceColor != color)
+            {
+                return false;
+            }
+
+            if (BoardState[dstSquare].Piece != null && BoardState[dstSquare].Piece.PieceColor == color)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
