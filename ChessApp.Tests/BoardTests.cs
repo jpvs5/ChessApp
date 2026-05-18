@@ -83,7 +83,7 @@ namespace ChessApp.Tests
             Assert.Equal(0, Board.rowDist("a2", "b2"));
             Assert.Equal(5, Board.rowDist("g2", "g7"));
             Assert.Equal(3, Board.rowDist("c2", "f5"));
-            Assert.Equal(2, Board.rowDist("e1", "c3"));
+            Assert.Equal(2, Board.rowDist("e3", "c1"));
         }
     }
 }
