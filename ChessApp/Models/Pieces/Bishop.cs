@@ -1,4 +1,6 @@
-﻿namespace ChessApp.Models.Pieces
+﻿using System;
+
+namespace ChessApp.Models.Pieces
 {
     public class Bishop : Piece
     {
@@ -14,6 +16,14 @@
 
         public override bool validMove(string srcSquare, string dstSquare)
         {
+            int rowDist = Board.rowDist(srcSquare, dstSquare);
+            int colDist = Board.colDist(srcSquare, dstSquare);
+
+            if (Math.Abs(rowDist) == Math.Abs(colDist))
+            {
+                return true;
+            }
+
             return false;
         }
     }
