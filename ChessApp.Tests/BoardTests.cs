@@ -74,7 +74,7 @@ namespace ChessApp.Tests
             Assert.Equal(1, Board.colDist("a2", "b2"));
             Assert.Equal(0, Board.colDist("g2", "g7"));
             Assert.Equal(3, Board.colDist("c2", "f5"));
-            Assert.Equal(2, Board.colDist("e1", "c3"));
+            Assert.Equal(-2, Board.colDist("e1", "c3"));
         }
 
         [Fact]
@@ -83,7 +83,7 @@ namespace ChessApp.Tests
             Assert.Equal(0, Board.rowDist("a2", "b2"));
             Assert.Equal(5, Board.rowDist("g2", "g7"));
             Assert.Equal(3, Board.rowDist("c2", "f5"));
-            Assert.Equal(2, Board.rowDist("e3", "c1"));
+            Assert.Equal(-2, Board.rowDist("e3", "c1"));
         }
     }
 }

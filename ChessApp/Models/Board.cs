@@ -52,12 +52,12 @@ namespace ChessApp.Models
 
         public static int colDist(string srcSquare,  string dstSquare)
         {
-            return Math.Abs(dstSquare[0] - srcSquare[0]);
+            return dstSquare[0] - srcSquare[0];
         }
 
         public static int rowDist(string srcSquare, string dstSquare)
         {
-            return Math.Abs((int)char.GetNumericValue(dstSquare[1]) - (int)char.GetNumericValue(srcSquare[1]));
+            return (int)char.GetNumericValue(dstSquare[1]) - (int)char.GetNumericValue(srcSquare[1]);
         }
 
         public Dictionary<string, Square> BoardState { get; }
