@@ -12,7 +12,7 @@
 
         public override string Notation { get; }
 
-        public override bool validMove(Square srcSquare, Square dstSquare)
+        public override bool validMove(string srcSquare, string dstSquare)
         {
             return false;
         }
