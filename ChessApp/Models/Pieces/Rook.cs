@@ -15,7 +15,18 @@
         
         public override bool validMove(string srcSquare, string dstSquare)
         {
-            return false;
+            int rowDist = Board.rowDist(srcSquare, dstSquare);
+            int colDist = Board.colDist(srcSquare, dstSquare);
+
+            if (rowDist != 0 && colDist != 0)
+            {
+                return false;
+            } else if (rowDist == 0 && colDist == 0)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
