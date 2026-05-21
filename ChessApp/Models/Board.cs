@@ -62,8 +62,41 @@ namespace ChessApp.Models
 
         public Dictionary<string, Square> BoardState { get; }
 
+        private bool validRow(string square)
+        {
+            int squareRow = (int)char.GetNumericValue(square[1]);
+
+            if (squareRow < 1 || squareRow > 8)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool validCol(string square)
+        {
+            char[] validCols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+
+            if (!validCols.Contains(square[0])) {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool validSquare(string square)
+        {
+            return square.Length == 2 && validRow(square) && validCol(square);
+        }
+
         public bool movePiece(string srcSquare, string dstSquare, PlayerColor color)
         {
+            if (!validSquare(srcSquare) || !validSquare(dstSquare))
+            {
+                return false;
+            }
+
             Piece piece = BoardState[srcSquare].Piece;
 
             if (piece == null)

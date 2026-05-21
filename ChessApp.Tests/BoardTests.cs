@@ -68,6 +68,17 @@ namespace ChessApp.Tests
             Assert.True(board.movePiece(srcSquare, dstSquare, playerColor));
         }
 
+        [Theory]
+        [InlineData("c9", "c3", PlayerColor.White)]
+        [InlineData("e7", "e0", PlayerColor.Black)]
+        [InlineData("b1", "c10", PlayerColor.White)]
+        public void MovePiece_InvalidSquare_ReturnFalse(string srcSquare, string dstSquare, PlayerColor playerColor)
+        {
+            Board board = new Board();
+
+            Assert.False(board.movePiece(srcSquare, dstSquare, playerColor));
+        }
+
         [Fact]
         public void ColDistTest()
         {
