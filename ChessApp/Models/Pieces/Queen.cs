@@ -1,4 +1,6 @@
-﻿namespace ChessApp.Models.Pieces
+﻿using System;
+
+namespace ChessApp.Models.Pieces
 {
     public class Queen : Piece
     {
@@ -14,6 +16,24 @@
 
         public override bool validMove(string srcSquare, string dstSquare)
         {
+            int rowDist = Math.Abs(Board.rowDist(srcSquare, dstSquare));
+            int colDist = Math.Abs(Board.colDist(srcSquare, dstSquare));
+
+            if (rowDist == colDist && rowDist != 0)
+            {
+                return true;
+            }
+
+            if (rowDist != 0 && colDist == 0)
+            {
+                return true;
+            }
+
+            if (rowDist == 0 && colDist != 0)
+            {
+                return true;
+            }
+
             return false;
         }
     }
