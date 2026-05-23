@@ -96,5 +96,36 @@ namespace ChessApp.Tests
             Assert.Equal(3, Board.rowDist("c2", "f5"));
             Assert.Equal(-2, Board.rowDist("e3", "c1"));
         }
+
+        [Theory]
+        [InlineData("a1", "a4")]
+        [InlineData("c8", "c6")]
+        [InlineData("d1", "g1")]
+        [InlineData("g1", "d1")]
+        [InlineData("c1", "e3")]
+        [InlineData("f1", "d3")]
+        [InlineData("c8", "a6")]
+        [InlineData("f8", "h6")]
+        public void IsPathObstructed_ReturnTrue(string srcSquare, string dstSquare)
+        {
+            Board board = new Board();
+
+            bool result = board.isPathObstructed(srcSquare, dstSquare);
+
+            Assert.True(result);
+        }
+
+        [Theory]
+        [InlineData("b2", "b4")]
+        [InlineData("d4", "f6")]
+        [InlineData("g6", "d6")]
+        public void IsPathObstructed_ReturnFalse(string srcSquare, string dstSquare)
+        {
+            Board board = new Board();
+
+            bool result = board.isPathObstructed(srcSquare, dstSquare);
+
+            Assert.False(result);
+        }
     }
 }

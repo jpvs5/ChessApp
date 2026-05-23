@@ -1,6 +1,7 @@
 ﻿using ChessApp.Models.Pieces;
 using System;
 using System.Collections.Generic;
+using System.Threading.Channels;
 
 namespace ChessApp.Models
 {
@@ -90,6 +91,109 @@ namespace ChessApp.Models
             return square.Length == 2 && validRow(square) && validCol(square);
         }
 
+        private string incrementRow(string square)
+        {
+            char row = square[1];
+            row++;
+
+            return string.Concat(square[0], row);
+        }
+
+        private string decrementRow(string square)
+        {
+            char row = square[1];
+            row--;
+
+            return string.Concat(square[0], row);
+        }
+
+        private string incrementCol(string square)
+        {
+            char col = square[0];
+            col++;
+
+            return string.Concat(col, square[1]);
+        }
+
+        private string decrementCol(string square)
+        {
+            char col = square[0];
+            col--;
+
+            return string.Concat(col, square[1]);
+        }
+
+        private bool checkSquares(string square, int distance, Func<string, string> squareMod)
+        {
+            while (distance > 1)
+            {
+                square = squareMod(square);
+                distance--;
+
+                if (BoardState[square].Piece != null)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
+
+        private bool checkSquares(string square, int distance, Func<string, string> squareColMod, Func<string, string> squareRowMod)
+        {
+            while (distance > 1)
+            {
+                square = squareColMod(square);
+                square = squareRowMod(square);
+                distance--;
+
+                if (BoardState[square].Piece != null)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
+
+        public bool isPathObstructed(string srcSquare, string dstSquare)
+        {
+            int rowDist = Board.rowDist(srcSquare, dstSquare);
+            int colDist = Board.colDist(srcSquare, dstSquare);
+
+            int distance = 0;
+            Func<string, string> modFunc;
+
+            switch (colDist)
+            {
+                case < 0:
+                    distance = Math.Abs(colDist);
+                    modFunc = square => decrementCol(square);
+                    break;
+                case > 0:
+                    distance = Math.Abs(colDist);
+                    modFunc = square => incrementCol(square);
+                    break;
+                case 0:
+                    modFunc = square => square;
+                    break;
+            }
+
+            switch (rowDist)
+            {
+                case < 0:
+                    distance = Math.Abs(rowDist);
+                    return checkSquares(srcSquare, distance, modFunc, decrementRow);
+                case > 0:
+                    distance = Math.Abs(rowDist);
+                    return checkSquares(srcSquare, distance, modFunc, incrementRow);
+                default:
+                    return checkSquares(srcSquare, distance, modFunc);
+            }
+        }
+
         public bool movePiece(string srcSquare, string dstSquare, PlayerColor color)
         {
             if (!validSquare(srcSquare) || !validSquare(dstSquare))
@@ -111,6 +215,10 @@ namespace ChessApp.Models
 
             if (BoardState[dstSquare].Piece != null && BoardState[dstSquare].Piece.PieceColor == color)
             {
+                return false;
+            }
+
+            if (piece.Notation != "N" && isPathObstructed(srcSquare, dstSquare)) {
                 return false;
             }
 
