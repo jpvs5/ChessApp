@@ -127,5 +127,47 @@ namespace ChessApp.Tests
 
             Assert.False(result);
         }
+
+        [Theory]
+        [InlineData("e1", "g1")]
+        [InlineData("e1", "c1")]
+        [InlineData("e8", "c8")]
+        [InlineData("e8", "g8")]
+        public void IsValidCastle_ReturnTrue(string srcSquare, string dstSquare)
+        {
+            Board board = new Board();
+
+            bool result = board.isValidCastle(srcSquare, dstSquare);
+
+            Assert.True(result);
+        }
+
+        [Theory]
+        [InlineData("e1", "h1")]
+        [InlineData("e1", "b1")]
+        [InlineData("e8", "b8")]
+        [InlineData("e8", "h8")]
+        public void IsValidCastle_WrongSquare_ReturnFalse(string srcSquare, string dstSquare)
+        {
+            Board board = new Board();
+
+            bool result = board.isValidCastle(srcSquare, dstSquare);
+
+            Assert.False(result);
+        }
+
+        //[Theory]
+        //[InlineData("e1", "h1")]
+        //[InlineData("e1", "a1")]
+        //[InlineData("e8", "a8")]
+        //[InlineData("e8", "g8")]
+        //public void IsValidCastle_PieceMoved_ReturnFalse(string srcSquare, string dstSquare)
+        //{
+        //    Board board = new Board();
+
+        //    bool result = board.isValidCastle(srcSquare, dstSquare);
+
+        //    Assert.False(result);
+        //}
     }
 }

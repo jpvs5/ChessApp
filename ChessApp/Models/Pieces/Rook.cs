@@ -6,7 +6,10 @@
         {
             this.Notation = "R";
             PieceColor = pieceColor;
+            CanCastle = true;
         }
+
+        public bool CanCastle { get; set; }
 
         public override PlayerColor PieceColor { get; }
 

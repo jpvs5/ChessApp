@@ -1,7 +1,6 @@
 ﻿using ChessApp.Models.Pieces;
 using System;
 using System.Collections.Generic;
-using System.Threading.Channels;
 
 namespace ChessApp.Models
 {
@@ -194,6 +193,52 @@ namespace ChessApp.Models
             }
         }
 
+        public bool isValidCastle(string srcSquare, string dstSquare)
+        {
+            if (BoardState[srcSquare].Piece.Notation != "K")
+            {
+                return false;
+            }
+
+            King king = (King)BoardState[srcSquare].Piece;
+            Piece rook;
+
+            if (!king.CanCastle)
+            {
+                return false;
+            }
+
+            switch (srcSquare)
+            {
+                case "e1":
+                    switch (dstSquare)
+                    {
+                        case "c1":
+                            rook = BoardState["a1"].Piece;
+                            return (rook != null && rook.Notation == "R" && ((Rook)rook).CanCastle);
+                        case "g1":
+                            rook = BoardState["h1"].Piece;
+                            return (rook != null && rook.Notation == "R" && ((Rook)rook).CanCastle);
+                        default:
+                            return false;
+                    }
+                case "e8":
+                    switch (dstSquare)
+                    {
+                        case "c8":
+                            rook = BoardState["a8"].Piece;
+                            return (rook != null && rook.Notation == "R" && ((Rook)rook).CanCastle);
+                        case "g8":
+                            rook = BoardState["h8"].Piece;
+                            return (rook != null && rook.Notation == "R" && ((Rook)rook).CanCastle);
+                        default:
+                            return false;
+                    }
+                default:
+                    return false;
+            }
+        }
+
         public bool movePiece(string srcSquare, string dstSquare, PlayerColor color)
         {
             if (!validSquare(srcSquare) || !validSquare(dstSquare))
@@ -220,6 +265,11 @@ namespace ChessApp.Models
 
             if (piece.Notation != "N" && isPathObstructed(srcSquare, dstSquare)) {
                 return false;
+            }
+
+            if (isValidCastle(srcSquare, dstSquare))
+            {
+                return true;
             }
 
             return true;

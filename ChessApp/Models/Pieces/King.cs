@@ -8,7 +8,10 @@ namespace ChessApp.Models.Pieces
         {
             this.Notation = "K";
             PieceColor = pieceColor;
+            CanCastle = true;
         }
+
+        public bool CanCastle {  get; set; }
 
         public override PlayerColor PieceColor { get; }
 
