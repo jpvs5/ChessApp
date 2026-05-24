@@ -272,6 +272,9 @@ namespace ChessApp.Models
                 return true;
             }
 
+            BoardState[dstSquare].Piece = piece;
+            BoardState[srcSquare].Piece = null;
+
             return true;
         }
     }

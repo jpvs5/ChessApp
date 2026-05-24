@@ -6,7 +6,7 @@ namespace ChessApp.Models.Pieces
     {
         public Pawn(PlayerColor pieceColor)
         {
-            this.Notation = "";
+            this.Notation = "p";
             PieceColor = pieceColor;
             CanDoubleStep = true;
         }
