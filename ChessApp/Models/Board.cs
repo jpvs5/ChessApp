@@ -1,6 +1,7 @@
 ﻿using ChessApp.Models.Pieces;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ChessApp.Models
 {
@@ -270,6 +271,11 @@ namespace ChessApp.Models
             if (isValidCastle(srcSquare, dstSquare))
             {
                 return true;
+            }
+
+            if (!piece.validMove(srcSquare, dstSquare))
+            {
+                return false;
             }
 
             BoardState[dstSquare].Piece = piece;
