@@ -30,7 +30,7 @@ namespace ChessApp.ViewModels
         }
 
         [RelayCommand]
-        public void selectSquare(string square)
+        public void SelectSquare(string square)
         {
             Debug.WriteLine(square);
             if (!_squareSelected)
