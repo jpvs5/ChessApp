@@ -15,6 +15,100 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="a8" Command="{Binding selectSquareCommand}" CommandParameter="{Binding $self.Name}" Content="{Binding Board[0]}"></Button>
+        <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[1]}"></Button>
+        <Button Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[2]}"></Button>
+        <Button Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[3]}"></Button>
+        <Button Grid.Column="4" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[4]}"></Button>
+        <Button Grid.Column="5" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[5]}"></Button>
+        <Button Grid.Column="6" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[6]}"></Button>
+        <Button Grid.Column="7" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[7]}"></Button>
+    
+        <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="a7" Command="{Binding selectSquareCommand}" CommandParameter="{Binding $self.Name}" Content="{Binding Board[8]}"></Button>
+        <Button Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[9]}"></Button>
+        <Button Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[10]}"></Button>
+        <Button Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[11]}"></Button>
+        <Button Grid.Column="4" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[12]}"></Button>
+        <Button Grid.Column="5" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[13]}"></Button>
+        <Button Grid.Column="6" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[14]}"></Button>
+        <Button Grid.Column="7" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[15]}"></Button>
+
+        <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="a6" Command="{Binding selectSquareCommand}" CommandParameter="{Binding $self.Name}" Content="{Binding Board[16]}"></Button>
+        <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[17]}"></Button>
+        <Button Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[18]}"></Button>
+        <Button Grid.Column="3" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[19]}"></Button>
+        <Button Grid.Column="4" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[20]}"></Button>
+        <Button Grid.Column="5" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[21]}"></Button>
+        <Button Grid.Column="6" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[22]}"></Button>
+        <Button Grid.Column="7" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[23]}"></Button>
+
+        <Button Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[24]}"></Button>
+        <Button Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[25]}"></Button>
+        <Button Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[26]}"></Button>
+        <Button Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[27]}"></Button>
+        <Button Grid.Column="4" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[28]}"></Button>
+        <Button Grid.Column="5" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[29]}"></Button>
+        <Button Grid.Column="6" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[30]}"></Button>
+        <Button Grid.Column="7" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[31]}"></Button>
+
+        <Button Grid.Column="0" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[32]}"></Button>
+        <Button Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[33]}"></Button>
+        <Button Grid.Column="2" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[34]}"></Button>
+        <Button Grid.Column="3" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[35]}"></Button>
+        <Button Grid.Column="4" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[36]}"></Button>
+        <Button Grid.Column="5" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[37]}"></Button>
+        <Button Grid.Column="6" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[38]}"></Button>
+        <Button Grid.Column="7" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[39]}"></Button>
+
+        <Button Grid.Column="0" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="a3" Command="{Binding selectSquareCommand}" CommandParameter="{Binding $self.Name}" Content="{Binding Board[40]}"></Button>
+        <Button Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[41]}"></Button>
+        <Button Grid.Column="2" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[42]}"></Button>
+        <Button Grid.Column="3" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[43]}"></Button>
+        <Button Grid.Column="4" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[44]}"></Button>
+        <Button Grid.Column="5" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[45]}"></Button>
+        <Button Grid.Column="6" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[46]}"></Button>
+        <Button Grid.Column="7" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[47]}"></Button>
+
+        <Button Grid.Column="0" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="a2" Command="{Binding selectSquareCommand}" CommandParameter="{Binding $self.Name}" Content="{Binding Board[48]}"></Button>
+        <Button Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[49]}"></Button>
+        <Button Grid.Column="2" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[50]}"></Button>
+        <Button Grid.Column="3" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[51]}"></Button>
+        <Button Grid.Column="4" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[52]}"></Button>
+        <Button Grid.Column="5" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[53]}"></Button>
+        <Button Grid.Column="6" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[54]}"></Button>
+        <Button Grid.Column="7" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[55]}"></Button>
+    
+        <Button Grid.Column="0" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[56]}"></Button>
+        <Button Grid.Column="1" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[57]}"></Button>
+        <Button Grid.Column="2" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[58]}"></Button>
+        <Button Grid.Column="3" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[59]}"></Button>
+        <Button Grid.Column="4" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[60]}"></Button>
+        <Button Grid.Column="5" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[61]}"></Button>
+        <Button Grid.Column="6" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[62]}"></Button>
+        <Button Grid.Column="7" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Board[63]}"></Button>
+    </Grid>
 
 </Window>
