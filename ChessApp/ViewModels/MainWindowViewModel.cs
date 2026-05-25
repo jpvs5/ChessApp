@@ -7,8 +7,6 @@ namespace ChessApp.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {
-        public string Greeting { get; } = "Welcome to Avalonia!";
-
         private Game _game;
         private bool _squareSelected = false;
         private string _srcSquare = "";
@@ -32,7 +30,6 @@ namespace ChessApp.ViewModels
         [RelayCommand]
         public void SelectSquare(string square)
         {
-            Debug.WriteLine(square);
             if (!_squareSelected)
             {
                 _srcSquare = square;
