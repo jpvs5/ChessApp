@@ -240,6 +240,11 @@ namespace ChessApp.Models
             }
         }
 
+        private bool isValidDoubleStep(string srcSquare, string dstSquare)
+        {
+            return BoardState[srcSquare].Piece.Notation == "p" ? ((Pawn)BoardState[srcSquare].Piece).CanDoubleStep : false;
+        }
+
         public bool movePiece(string srcSquare, string dstSquare, PlayerColor color)
         {
             if (!validSquare(srcSquare) || !validSquare(dstSquare))
@@ -264,18 +269,43 @@ namespace ChessApp.Models
                 return false;
             }
 
-            if (piece.Notation != "N" && isPathObstructed(srcSquare, dstSquare)) {
+            if (piece.Notation != "N" && isPathObstructed(srcSquare, dstSquare))
+            {
                 return false;
+            }
+
+            if (isValidDoubleStep(srcSquare, dstSquare))
+            {
+                ((Pawn)piece).CanDoubleStep = false;
+
+                BoardState[dstSquare].Piece = piece;
+                BoardState[srcSquare].Piece = null;
+
+                return true;
             }
 
             if (isValidCastle(srcSquare, dstSquare))
             {
+                BoardState[dstSquare].Piece = piece;
+                BoardState[srcSquare].Piece = null;
+
                 return true;
             }
 
             if (!piece.validMove(srcSquare, dstSquare))
             {
                 return false;
+            }
+
+            if (piece.Notation == "p")
+            {
+                ((Pawn)piece).CanDoubleStep = false;
+            } else if (piece.Notation == "K")
+            {
+                ((King)piece).CanCastle = false;
+            } else if (piece.Notation == "R")
+            {
+                ((Rook)piece).CanCastle = false;
             }
 
             BoardState[dstSquare].Piece = piece;
